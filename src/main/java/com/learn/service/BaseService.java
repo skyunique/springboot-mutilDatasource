@@ -14,6 +14,15 @@ public interface BaseService<T> {
     boolean insert(T entity) ;
 
     /**
+     * 批量插入数据
+     *
+     * @param entityList
+     * @return
+     * @throws
+     */
+    boolean insertBatch(List<T> entityList);
+
+    /**
      * 更新数据
      *
      * @param entity

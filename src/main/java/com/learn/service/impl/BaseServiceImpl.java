@@ -14,9 +14,28 @@ import java.util.List;
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
     private static final Logger logger= LoggerFactory.getLogger(BaseServiceImpl.class);
 
+
+
     protected abstract BaseDao<T> getMapper();
 
-
+    /**
+     * 批量插入数据
+     *
+     * @param entityList
+     * @return
+     * @throws
+     */
+    @Override
+    public boolean insertBatch(List<T> entityList) {
+        boolean flag = false;
+        try {
+            getMapper().insertBatch(entityList);
+            flag = true;
+        } catch (Exception e) {
+            logger.error("批量新增"+getClassName(entityList.get(0))+"失败！原因是:",e);
+        }
+        return flag;
+    }
     @Override
     public boolean insert(T entity)  {
         boolean falg=false;
@@ -129,7 +148,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
         if(t instanceof User){
             str="User";
         }else if(t instanceof Student){
-            str="Studnet";
+            str="Student";
         }
         return str;
     }

@@ -1,5 +1,7 @@
 package com.learn.dao;
 
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface BaseDao<T>{
@@ -20,7 +22,7 @@ public interface BaseDao<T>{
      * @throws Exception
      * @throws
      */
-    int insertBatch(List<T> entityList) throws Exception;
+    int insertBatch(@Param("entityList") List<T> entityList) throws Exception;
 
     /**
      * 更新数据

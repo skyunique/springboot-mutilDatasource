@@ -18,6 +18,14 @@
         values (#{name},#{age})
     </insert>
 
+    <insert id="insertBatch">
+        INSERT INTO t_user(name,age)
+        VALUES
+        <foreach collection="entityList" item="ent" separator=",">
+            (#{ent.name},#{ent.age})
+        </foreach>
+    </insert>
+
     <update id="update" parameterMap="User">
         update
         t_user

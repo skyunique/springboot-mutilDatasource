@@ -41,4 +41,9 @@ public class StudentRestController {
         return studentService.findByListEntity(student);
     }
 
+    @RequestMapping(value = "/stuBatch",method = RequestMethod.POST)
+    public boolean insert(@RequestBody List<Student> studentList){
+        return studentService.insertBatch(studentList);
+    }
+
 }
