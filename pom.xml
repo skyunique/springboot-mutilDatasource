@@ -78,6 +78,11 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
